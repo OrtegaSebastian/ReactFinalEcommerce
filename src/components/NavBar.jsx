@@ -22,6 +22,8 @@ const NavBar = () => {
 
         <NavBarLink to="/categoria/verduleria">VERDULERIA</NavBarLink>
 
+        <NavBarLink to="/categoria/formulario">FORMULARIO</NavBarLink>
+
     </Menu>
     </Nav>
   );
