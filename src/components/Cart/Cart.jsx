@@ -31,7 +31,7 @@ const Carrito = () => {
         carrito.map((producto) => 
         <CarritoItem key={producto.item.id} producto={producto.item} />)
         )}
-     <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    
+    <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    
     </div>
     <button onClick={VaciarCarrito} className="btn btn-outline-danger"> Borrar carrito</button>
     <p>El precio total de los productos es {PrecioTotal()} </p>

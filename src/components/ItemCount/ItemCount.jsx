@@ -5,7 +5,7 @@ function Contar({ stock, inicial, onAdd }) {
 
 
   let [cantidad, setCantidad] = useState(inicial);
-  let [mostrar, setMostrar] = useState(true);
+
   const aumentarCantidad = () => {
     if (cantidad < stock) setCantidad(cantidad+1);
   };

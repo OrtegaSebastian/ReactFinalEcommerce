@@ -12,7 +12,7 @@ const Formulario = () => {
     
     const ofertas = watch('incluirOfertas') 
 
-    return <div>
+    return <div style={{margin:("30px","50px","50px","50px") }} className="col-md6" >
     
         <h2>Formulario</h2>
         <p>Nombre: {watch('nombre')}</p>
@@ -58,9 +58,9 @@ const Formulario = () => {
             {ofertas && (
                 <div>Se enviaran ofertas</div>
             )}
-            <imput type="submit" value ="Enviar"/>
+        <button className="btn btn-danger" value ="Enviar">ENVIAR</button>    
         </form>
-
+        
     </div>
     
 
