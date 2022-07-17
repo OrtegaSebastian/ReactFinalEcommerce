@@ -31,11 +31,6 @@ function Contar({ stock, inicial, onAdd }) {
         </div>
         <button onClick={agregarItem}>Agregar al carrito</button>
       </div>
-
-      
-        
-     
-     
     </>
   );
 }

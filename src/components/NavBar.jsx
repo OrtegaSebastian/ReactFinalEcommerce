@@ -2,9 +2,6 @@ import React from 'react'
 import { Nav, Menu,NavBarLink  } from './NavBarComponents'
 import CartWidget from './CartWidget/CartWidget'
 
-
-
-
 const NavBar = () => {
   return (
     <Nav>
