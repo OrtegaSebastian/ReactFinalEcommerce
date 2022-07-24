@@ -13,6 +13,7 @@ const CarritoContextProvider = ({ children }) => {
       alert("se agrego el producto", { cantidad });
     }
   };
+  
 
   const DelItem = (id) => {
     const items = carrito.filter((producto) => producto.item.id !== id);

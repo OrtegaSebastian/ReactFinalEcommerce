@@ -1,13 +1,38 @@
 import {  CarritoContext } from "../contexts/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CarritoItem from "./CartItem";
+// import Contar from '../ItemCount/ItemCount'
+import { Link } from "react-router-dom";
 import { getFirestore,addDoc, collection } from "firebase/firestore";
+
+
 
 const Carrito = () => {
   
   const { carrito , VaciarCarrito, PrecioTotal, IconCarrito } = useContext( CarritoContext);
   
-  const generarOrden =()=>{
+  const [datosFormulario, setDatosFormulario] = useState({
+    nombre: "",
+    correo: "",
+    telefono: "",
+  });
+
+
+
+  const generarOrden =(e)=>{
+
+  //  let orden = {}
+
+  //  orden.buyer = dataForm
+  //  orden.total = PriceTotal()
+  //  orden.items = Carrito.map((carritoItem) => {
+  //    const id = cartItem.item.id
+  //    const name = cartItem.item.title
+  //    const price = cartItem.item.price * cartItem.counter
+      
+  //    return { id, name, price }
+
+  //  })  
 
     const db = getFirestore()
     const queryCollection = collection(db, "ordenes") 
@@ -24,9 +49,14 @@ const Carrito = () => {
     
   return (
     <>
-    <div>
+    <div style={{margin:("30px","50px","50px","50px") }} className="col-md6">
     {carrito.length < 1 ? (
-        <p>Carrito vacio</p>
+    <>
+        <Link to={"/"}>
+        <button className="btn btn-outline-primary">Seguir Comprando</button>
+        </Link>
+      <p>Carrito vacio</p>
+      </>
     ) : (
         carrito.map((producto) => 
         <CarritoItem key={producto.item.id} producto={producto.item} />)

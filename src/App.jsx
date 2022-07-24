@@ -5,7 +5,7 @@ import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import Carrito from "./components/Cart/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import  CarritoContextProvider  from "./components/contexts/CartContext";
-import Formulario from "./components/Form/Formulario";
+
 
 function App() {
   return (
@@ -14,10 +14,11 @@ function App() {
       <NavBar />
         <Routes>
         <Route path="/" element={<ItemListContainer />} />
+        <Route path="/inicio" element={<ItemListContainer />} />
         <Route path="/categoria/:id" element={<ItemListContainer />} />
         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Carrito />} />
-        <Route path="/categoria/formulario" element={<Formulario/>} />
+        
       </Routes>
     </BrowserRouter>
     </CarritoContextProvider>
