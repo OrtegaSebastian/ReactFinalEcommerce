@@ -68,7 +68,7 @@ const Carrito = () => {
       </>
     ) : (
         carrito.map((producto) => 
-        <CarritoItem key={producto.item.id} producto={producto.item} contador={producto.contador}/>)
+        <CarritoItem key={producto.item.id} producto={producto.item} cantidad={producto.cantidad}/>)
         )}
     <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    
     </div>
@@ -78,10 +78,10 @@ const Carrito = () => {
     <p> </p>
     :<p>La cantidad total del carrito es {IconCarrito()}</p>
     }
-     <Formulario/>
-    </>
-  );
-   
+    <Formulario/>
+  </>
+);
+  
 
 
 
