@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import{ CarritoContext} from "../contexts/CartContext";
 
-const CarritoItem = ({producto}) => {
+const CarritoItem = ({producto, cantidad}) => {
     const {DelItem} = useContext( CarritoContext);
     const {nombre, precio,id,pictureUrl}= producto;
     return (
@@ -10,6 +10,7 @@ const CarritoItem = ({producto}) => {
         <img src={pictureUrl} alt='producto' style={{margin:("30px","50px","50px","50px") }} className="col-2"/>
         
         <h4>Precio = {precio}</h4>
+        <h4>unidades = {cantidad}</h4>
         <button onClick={()=> DelItem(id)}>borrar item</button>
     </div>
     )

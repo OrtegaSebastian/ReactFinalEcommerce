@@ -6,12 +6,17 @@ const CarritoContextProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
 
   const AgregarAlCarrito = (item, cantidad) => {
+    let producto = {item, cantidad};
+
+    let auxiliarCarrito =[];
+
     if (EstaEnCarrito(item.id)) {
-      alert("el producto ya esta en el carrito");
+      producto = carrito.find(e => e.item.id === item.id);
+      producto.cantidad += cantidad;
     } else {
-      setCarrito([...carrito, { item, cantidad }]);
-      alert("se agrego el producto", { cantidad });
+      auxiliarCarrito = [producto, ...carrito]
     }
+    setCarrito(auxiliarCarrito)
   };
   
 

@@ -13,6 +13,10 @@ function Contar({ stock, inicial, onAdd }) {
     if (cantidad > inicial) setCantidad(cantidad-1);
   };
 
+  const reseteo = ()=>{
+    setCantidad(1)
+  }
+
   const agregarItem = () => {
     onAdd(cantidad);
   };
@@ -28,6 +32,7 @@ function Contar({ stock, inicial, onAdd }) {
           <button type="button" onClick={aumentarCantidad}>
             +
           </button>
+          <button type="button" onClick={reseteo}>Resetear</button>
         </div>
         <button onClick={agregarItem}>Agregar al carrito</button>
       </div>
