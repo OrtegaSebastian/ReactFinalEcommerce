@@ -18,7 +18,9 @@ function Contar({ stock, inicial, onAdd }) {
   }
 
   const agregarItem = () => {
+   
     onAdd(cantidad);
+       
   };
 
   return (

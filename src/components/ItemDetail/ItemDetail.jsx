@@ -21,7 +21,7 @@ return (
     <img src={pictureUrl} alt={nombre}  style={{margin:("30px","50px","50px","50px") }} className="col-4"/>
     <h4>Precio ${precio}</h4>
   <Contar stock={stock}  inicial={1} onAdd={onAdd} />
-    <p>Unidades disponibles = {stock}</p>
+    <h5>Unidades disponibles = {stock}</h5>
   </div>
   </>
 );

@@ -4,9 +4,9 @@ import {Link} from "react-router-dom"
 export const Nav = styled.nav`
 width: 100%;
 height: 80px;
-background-color: black;
+background-color: orange;
 display: flex;
-flex-direction:column;`
+flex-direction:row;`
 
 export const Menu = styled.div`
 flex: 70%;

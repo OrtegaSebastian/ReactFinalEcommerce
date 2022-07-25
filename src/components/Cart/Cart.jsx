@@ -10,7 +10,7 @@ import Formulario from "../Form/Formulario";
 
 const Carrito = () => {
   
-  const { carrito , VaciarCarrito, PrecioTotal, IconCarrito } = useContext( CarritoContext);
+  const { Carrito , VaciarCarrito, PrecioTotal, IconCarrito } = useContext( CarritoContext);
   
   const [datosFormulario, setDatosFormulario] = useState({
     nombre: "",
@@ -28,7 +28,7 @@ const Carrito = () => {
   orden.comprador = datosFormulario
   orden.total = PrecioTotal()
 
-  orden.items = carrito.map((carritoItem) => {
+  orden.items = Carrito.map((carritoItem) => {
     const id = carritoItem.item.id
     const nombre = carritoItem.item.nombre
     const precio = carritoItem.item.precio * carritoItem.contador
@@ -59,7 +59,7 @@ const Carrito = () => {
   return (
     <>
     <div style={{margin:("30px","50px","50px","50px") }} className="col-md6">
-    {carrito.length < 1 ? (
+    {Carrito.length < 1 ? (
     <>  <p>Carrito vacio</p>
         <Link to={"/"}>
         <button className="btn btn-outline-primary">Seguir Comprando</button>
@@ -67,7 +67,7 @@ const Carrito = () => {
       
       </>
     ) : (
-        carrito.map((producto) => 
+       Carrito.map((producto) => 
         <CarritoItem key={producto.item.id} producto={producto.item} cantidad={producto.cantidad}/>)
         )}
     <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    

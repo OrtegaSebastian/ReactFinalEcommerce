@@ -1,9 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 export const CarritoContext = createContext([]);
+export const UsarCarritoContext = () => useContext(CarritoContext)
+
 
 const CarritoContextProvider = ({ children }) => {
-  const [carrito, setCarrito] = useState([]);
+  const [Carrito, setCarrito] = useState([]);
 
   const AgregarAlCarrito = (item, cantidad) => {
     let producto = {item, cantidad};
@@ -11,38 +13,39 @@ const CarritoContextProvider = ({ children }) => {
     let auxiliarCarrito =[];
 
     if (EstaEnCarrito(item.id)) {
-      producto = carrito.find(e => e.item.id === item.id);
+    
+      producto = Carrito.find(e => e.item.id === item.id);
       producto.cantidad += cantidad;
     } else {
-      auxiliarCarrito = [producto, ...carrito]
+      auxiliarCarrito = [producto, ...Carrito]
     }
     setCarrito(auxiliarCarrito)
   };
   
 
   const DelItem = (id) => {
-    const items = carrito.filter((producto) => producto.item.id !== id);
+    const items = Carrito.filter((producto) => producto.item.id !== id);
     setCarrito(items);
     return;
   };
   const IconCarrito = () => {
-    return carrito.reduce((acum, i) => acum + i.cantidad, 0);
+    return Carrito.reduce((acum, i) => acum + i.cantidad, 0);
   };
   const PrecioTotal = () => {
-    return carrito.reduce((acum, i) => acum + i.cantidad * i.item.precio, 0);
+    return Carrito.reduce((acum, i) => acum + i.cantidad * i.item.precio, 0);
   };
   const VaciarCarrito = () => {
     return setCarrito([]);
   };
 
   const EstaEnCarrito = (id) => {
-    return carrito && carrito.some((i) => i.item.id === id);
+    return Carrito && Carrito.some((i) => i.item.id === id);
   };
   return (
     <CarritoContext.Provider
       value={{
         AgregarAlCarrito,
-        carrito,
+        Carrito,
         VaciarCarrito,
         DelItem,
         PrecioTotal,
