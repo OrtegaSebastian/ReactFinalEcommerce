@@ -27,6 +27,7 @@ const ItemDetailContainer = () => {
       cargando?
       <h3>Cargando</h3>
       :<ItemDetail item={producto} />
+      
       }
    </div>
   );

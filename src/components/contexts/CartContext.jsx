@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 export const CarritoContext = createContext([]);
 export const UsarCarritoContext = () => useContext(CarritoContext)
@@ -6,10 +6,20 @@ export const UsarCarritoContext = () => useContext(CarritoContext)
 
 const CarritoContextProvider = ({ children }) => {
   const [Carrito, setCarrito] = useState([]);
-
+ 
+  const Intercambiabilidad = ()=>{
+    const [inputType, setInputType]= useState('button')
+    const handleInter=()=>{
+      setInputType('input')
+    }  
+    return( inputType === 'button')?
+      <button handleInter={handleInter}/>
+      :
+      <inputCount/> 
+  }
   const AgregarAlCarrito = (item, cantidad) => {
     let producto = {item, cantidad};
-
+    
     let auxiliarCarrito =[];
 
     if (EstaEnCarrito(item.id)) {
@@ -50,6 +60,7 @@ const CarritoContextProvider = ({ children }) => {
         DelItem,
         PrecioTotal,
         IconCarrito,
+        Intercambiabilidad
       }}
     >
       {children}
