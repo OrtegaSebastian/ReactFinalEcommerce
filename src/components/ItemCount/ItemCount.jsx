@@ -5,7 +5,7 @@ function Contar({ stock, inicial, onAdd }) {
 
 
   let [cantidad, setCantidad] = useState(inicial);
-
+;
   const aumentarCantidad = () => {
     if (cantidad < stock) setCantidad(cantidad+1);
   };
@@ -13,14 +13,8 @@ function Contar({ stock, inicial, onAdd }) {
     if (cantidad > inicial) setCantidad(cantidad-1);
   };
 
-  const reseteo = ()=>{
-    setCantidad(1)
-  }
-
   const agregarItem = () => {
-   
     onAdd(cantidad);
-       
   };
 
   return (
@@ -34,10 +28,14 @@ function Contar({ stock, inicial, onAdd }) {
           <button type="button" onClick={aumentarCantidad}>
             +
           </button>
-          <button type="button" onClick={reseteo}>Resetear</button>
         </div>
         <button onClick={agregarItem}>Agregar al carrito</button>
       </div>
+
+      
+        
+     
+     
     </>
   );
 }

@@ -10,7 +10,7 @@ const Item = ({ producto }) => {
     >
       <div className="card w-100 mt5">
         <div className="card-header">
-        <h3 className="m-2 p-1"> {`${nombre} - ${marca}`}</h3>  
+         <h3 className="m-2 p-1"> {`${nombre} - ${marca}`}</h3>  
         </div>
         <h5 className="m-3">Precio del producto =   {precio}</h5>  
       <div className="card-body">
