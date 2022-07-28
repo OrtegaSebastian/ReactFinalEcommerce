@@ -73,7 +73,8 @@ const Carrito = () => {
 
   const handleSubmit =(e)=>{
     e.preventDefault();
-    console.log("FormularioEnviado")   
+    alert("FormularioEnviado")
+    window.location.reload()     
   }
 
   const onChange = (e) => {
