@@ -18,7 +18,7 @@ const ItemDetail = ({ item }) => {
     <>
       <div
         style={{ margin: ("30px", "50px", "50px", "50px") }}
-        className="col-12"
+        className="col-6"
       >
         <h2>{nombre}</h2>
         <h3>{marca}</h3>
@@ -34,8 +34,8 @@ const ItemDetail = ({ item }) => {
           <Contar stock={stock} inicial={1} onAdd={onAdd} />
         ) : (
           <div>
-            <button> <Link to="/cart">Ir al carrito</Link></button>
-            <button ><Link to="/">Ir al home </Link></button>
+             <button type="button" class="btn btn-outline-dark" > <Link to="/cart">Ir al carrito</Link>    </button>
+            <button type="button" class="btn btn-outline-dark" ><Link to="/">Seguir Comprando </Link></button>
           </div>
         )}
       </div>

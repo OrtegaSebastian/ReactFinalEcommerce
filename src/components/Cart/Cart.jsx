@@ -11,11 +11,11 @@ const Carrito = () => {
   
   const generarOrden =()=>{
 
-    const db = getFirestore()
-    const queryCollection = collection(db, "ordenes") 
-    const total = PrecioTotal()  
-    const comprador = {nombre: 'seba', numero:'155333111', email: 'sebastian.ortega@hotmail.com'}
-    const orden = {comprador, carrito,total}
+  const db = getFirestore()
+  const queryCollection = collection(db, "ordenes") 
+  const total = PrecioTotal()  
+  const comprador = {nombre: 'seba', numero:'155333111', email: 'sebastian.ortega@hotmail.com'}
+  const orden = {comprador, carrito,total}
 
     const pedido = addDoc(queryCollection, orden)
     pedido.then((resp)=>{
@@ -73,6 +73,7 @@ const Carrito = () => {
 
   const handleSubmit =(e)=>{
     e.preventDefault();
+    console.log("FormularioEnviado")   
   }
 
   const onChange = (e) => {
@@ -81,20 +82,22 @@ const Carrito = () => {
 
   return (
     <>
-    <div>
+    <div style={{margin:("30px","50px","50px","50px") }} className="col-md6">
     {carrito.length < 1 ? (
-        <p>Carrito vacio</p>
+        <h3>Carrito vacio</h3>
     ) : (
         carrito.map((producto) => 
-        <CarritoItem key={producto.item.id} producto={producto.item} />)
+        <CarritoItem key={producto.item.id} producto={producto.item} cantidad={producto.cantidad} />)
         )}
-    <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    
-    </div>
+    <button  className="btn btn-success"  onClick={generarOrden} >Terminar Compra</button>    
+    
     <button onClick={VaciarCarrito} className="btn btn-outline-danger"> Borrar carrito</button>
     <p>El precio total de los productos es {PrecioTotal()} </p>
+    </div>
     {IconCarrito() < 1 ? 
     <p> </p>
-    :<p>La cantidad total del carrito es {IconCarrito()}</p>
+    :<div style={{margin:("30px","50px","50px","50px") }} className="col-md6">La cantidad total del carrito es {IconCarrito()}</div>
+    
     }
     <form onSubmit={handleSubmit}>
       {inputs.map((input)=>(
