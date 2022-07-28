@@ -23,10 +23,10 @@ const Carrito = () => {
       .catch((error)=>{console.log(error)})
       .finally((resp)=>{VaciarCarrito()})
   }
-  
+  const [ocultar, setOcultar] = useState(false);
   const [valores, setValores] = useState({
     nombre: "",
-    appelido: "",
+    apellido: "",
     correo: "",
     fechaNacimiento: "",    
   });
@@ -81,6 +81,9 @@ const Carrito = () => {
     setValores({...valores, [e.target.nombre]: e.target.valores})
   }
 
+
+
+ 
 
   return (
     <>
