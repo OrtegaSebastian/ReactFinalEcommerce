@@ -6,12 +6,11 @@ const Formulario = (props) => {
     
     const { label, error, onChange, id, ...inputProps } = props;
       return (
-      <div className="formInput">
+      <div className="formulario">
         <label>{label}</label>
         <input
           {...inputProps}
-          onChange={onChange}
-        
+          onChange={onChange}          
         />
         <span>{error}</span>
       </div>

@@ -23,8 +23,8 @@ const Carrito = () => {
       .catch((error)=>{console.log(error)})
       .finally((resp)=>{VaciarCarrito()})
   }
-  const [ocultar, setOcultar] = useState(false);
-  const [valores, setValores] = useState({
+  
+  const [values, setValues] = useState({
     nombre: "",
     apellido: "",
     correo: "",
@@ -64,26 +64,20 @@ const Carrito = () => {
     {
       id:4,
       nombre: "fechaNacimiento",
-      type: "text",
+      type: "date",
       placeholder: "FechaNacimiento",
-      error: "El correo que ingreso contiene errores",
-      label: "FechaNacimiento",
-      required: true,
+      label: "FechaNacimiento"    
     },
-   ]
+  ]
 
 
   const handleSubmit =(e)=>{
     e.preventDefault();
   }
 
-  const onChange = (e)=>{
-    setValores({...valores, [e.target.nombre]: e.target.valores})
-  }
-
-
-
- 
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
   return (
     <>
@@ -94,7 +88,7 @@ const Carrito = () => {
         carrito.map((producto) => 
         <CarritoItem key={producto.item.id} producto={producto.item} />)
         )}
-     <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    
+    <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>    
     </div>
     <button onClick={VaciarCarrito} className="btn btn-outline-danger"> Borrar carrito</button>
     <p>El precio total de los productos es {PrecioTotal()} </p>
@@ -105,8 +99,10 @@ const Carrito = () => {
     <form onSubmit={handleSubmit}>
       {inputs.map((input)=>(
     <Formulario key={input.id}
-     {...input}
-      value ={valores[input.nombre]} onChange={onChange} />
+    {...input}
+    value={values[input.name]}
+    onChange={onChange}
+    />
       ))}
     <button >Enviar</button>
     </form>

@@ -23,3 +23,12 @@ button{
     margin-top: 15px;
     margin-bottom: 30px;
 }
+
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
+
