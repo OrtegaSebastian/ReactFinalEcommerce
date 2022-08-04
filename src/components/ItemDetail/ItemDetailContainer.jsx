@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState([]);
-  const [cargando, setCargando] = useState(false);
+  const [cargando, setCargando] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
@@ -13,9 +13,10 @@ const ItemDetailContainer = () => {
     const productoFiltrado = doc(db, "items", id);
 
     getDoc(productoFiltrado)
-      .then((resp) => setProducto({ id: resp.id, ...resp.data() }))
+      .then(resp =>{ setProducto({ id: resp.id, ...resp.data() })
+      setCargando(false)})
       .catch((err) => console.log(err))
-      .finally(setCargando(false));
+      .finally(setCargando(true));
   }, [id]);
 
   return (
