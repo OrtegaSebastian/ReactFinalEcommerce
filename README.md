@@ -1,5 +1,5 @@
 # Información del proyecto
-El proyecto esta desarrollado en React Js, es una Ecommerce sobre productos de supermercado el cual tiene diferentes pestañas en las que uno puede manejarse, comenzando en una web principal donde se muestran todos los productos y luego pudierndose mover a través de las diferentes categorías para seleccionar el producto que desea elegir 
+El proyecto esta desarrollado en React Js, es una Ecommerce sobre productos de supermercado el cual tiene diferentes pestañas en las que uno puede manejarse, comenzando en una web principal donde se muestran todos los productos y luego pudiendose mover a través de las diferentes categorías para seleccionar el producto que desea elegir 
 
 
 ## Tecnologías
